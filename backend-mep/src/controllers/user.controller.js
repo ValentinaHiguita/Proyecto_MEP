@@ -82,7 +82,7 @@ const assignRole = (req, res) => {
     const { role_id } = req.body;
 
     if (!role_id) {
-        return res.status(400).json({ message: "Se requiere role_id," });
+        return res.status(400).json({ message: "Se requiere role_id, lauraaaaa" });
     }
 
     db.query("INSERT IGNORE INTO user_roles (user_id, role_id) VALUES (?, ?)", [id, role_id], (err, result) => {
