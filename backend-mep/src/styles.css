@@ -1,0 +1,114 @@
+/* GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* ENCABEZADO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #48a1c7;
+    color: white;
+}
+
+.empresa-link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* SECCIÓN HERO CON IMAGEN DE FONDO */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background: url('img/pareja.avif') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* CONTENIDO ENCIMA DE LA IMAGEN */
+.hero-content {
+    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* BOTÓN GENERAL */
+.btn {
+    display: inline-block;
+    background: #48a1c7;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 2px solid white;
+    font-weight: bold;
+}
+
+/* SECCIÓN DE SERVICIOS */
+.services {
+    background: white;
+    padding: 20px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.service img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background: #ddd;
+    padding: 10px;
+}
+
+/* Ajuste de textos y botones en móvil */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+    .hero-content {
+        padding: 15px;
+        width: 95%;
+    }
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .service img {
+        width: 80px;
+    }
+}
+
+/* Mejora de accesibilidad en botones */
+button {
+    min-width: 48px;
+    min-height: 48px;
+}
