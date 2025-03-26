@@ -221,6 +221,20 @@ h6 {
   color: #d7631b !important;
   text-decoration: none;
 }
+.btn-empresa {
+  background-color: #278795;
+  color: #fff !important;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-empresa:hover {
+  background-color: #218838;
+  text-decoration: none;
+}
 
 
 /*--------------------------------------------------------------
@@ -1700,4 +1714,27 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-top: 10px;
   }
 }
+/*--------------------------------------------------------------
+#BOTON DE VOLVER A PAGINA PRINCIPAL
+--------------------------------------------------------------*/
+.btn-form-volver {
+  background-color: #57b846;
+  color: #fff !important;
+  padding: 6px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+.btn-form-volver:hover {
+  background-color: #379237;
+  text-decoration: none;
+  color: #fff !important;
+}
+
 
