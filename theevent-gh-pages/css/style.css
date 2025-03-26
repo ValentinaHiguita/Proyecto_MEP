@@ -510,14 +510,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro:before {
-  content: "";
-  background: rgba(6, 12, 34, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(1px); /* Suave difuminado */
   position: absolute;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
 }
+
 
 #intro .intro-container {
   position: absolute;
@@ -548,22 +549,25 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 56px;
   font-weight: 600;
   text-transform: uppercase;
+
 }
 
 #intro h1 span {
-  color: #f82249;
+  color: #278795;
 }
 
 #intro p {
-  color: #ebebeb;
+  color: #fdffff;
   font-weight: 700;
   font-size: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra suave */
+
 }
 
 #intro .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  background: radial-gradient(#278795 50%, rgba(101, 111, 150, 0.15) 52%);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -610,7 +614,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro .play-btn:hover::after {
-  border-left: 15px solid #f82249;
+  border-left: 15px solid #278795;
   -webkit-transform: scale(20);
   transform: scale(20);
 }
@@ -648,7 +652,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #fffafb;
 }
 
 #intro .about-btn:hover {
