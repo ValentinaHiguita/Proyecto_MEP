@@ -145,26 +145,42 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  background: #fff; /* ← fondo blanco desde el inicio */
+  background: #fff;
   height: 90px;
-  padding: 25px 0;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   right: 0;
-  transition: all 0.5s;
   z-index: 997;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
 }
 
-
-#header.header-scrolled,
-#header.header-fixed {
-  background: rgba(246, 246, 246, 0.98);
-  height: 70px;
-  padding: 15px 0;
-  transition: all 0.5s;
+/* Estilo para el contenedor interno */
+#header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
+/* Logo alineado */
+#header #logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#header #logo img {
+  max-height: 50px;
+  margin-right: 15px;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Título (si usas texto en vez de imagen) */
 #header #logo h1 {
   font-size: 36px;
   margin: 0;
@@ -185,54 +201,45 @@ h6 {
   color: #fff;
 }
 
-#header #logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 50px;
+/* Para cuando haces scroll */
+#header.header-scrolled,
+#header.header-fixed {
+  background: rgba(246, 246, 246, 0.98);
+  height: 70px;
+  padding: 15px 0;
+  transition: all 0.5s;
 }
-
 /* === Botones del menú de navegación === */
 .btn-login {
-  background-color: #007bff;
-  color: #fff !important;
-  padding: 8px 15px;
+  background-color: #ffffff;
+  color: #000000 !important;
+  padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  border: 1px solid #0d0d0d;
 }
 
+
 .btn-login:hover {
-  background-color: #b37d00;
+  background-color: #278795;
   text-decoration: none;
 }
 
 .btn-register {
-  border: 1px solid #fff;
-  color: #fff !important;
-  padding: 8px 15px;
+  border: 1px solid #0d0d0d;
+  color: #060606 !important;
+  padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
-  margin-left: 10px;
+  margin-left: 6px;       /* Más cerca del botón anterior */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-register:hover {
-  background-color: #fff;
-  color: #d7631b !important;
-  text-decoration: none;
-}
-.btn-empresa {
-  background-color: #278795;
-  color: #fff !important;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-weight: 500;
-  margin-left: 10px;
-  transition: background-color 0.3s ease;
-}
 
-.btn-empresa:hover {
-  background-color: #218838;
+.btn-register:hover {
+  background-color:#278795;
+  color: #000000 !important;
   text-decoration: none;
 }
 
@@ -244,10 +251,10 @@ h6 {
 /* Nav Menu Essentials */
 
 .nav-menu,
-.nav-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .nav-menu ul {
@@ -259,12 +266,13 @@ h6 {
 }
 
 .nav-menu li {
+  list-style: none;
   position: relative;
-  white-space: nowrap;
 }
 
 .nav-menu > li {
-  float: left;
+  position: relative;
+  margin-left: 6px;
 }
 
 .nav-menu li:hover > ul,
@@ -303,30 +311,45 @@ h6 {
 /* Nav Meu Container */
 
 #nav-menu-container {
-  float: right;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding-left: 10px;  /* Menos espacio entre el logo y el menú */
+  flex-wrap: nowrap;
+  gap: 5px;             /* Menos espacio entre elementos */
+  
 }
+
+
+
+
 
 /* Nav Meu Styling */
 
 .nav-menu a {
-  padding: 8px;
+  font-size: 13px;
+  padding: 8px 4px;   /* Reducido aún más */
   text-decoration: none;
   display: inline-block;
   color: rgba(0, 0, 0, 0.8);
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  font-size: 14px;
   outline: none;
+  white-space: nowrap;
+  
 }
+
 
 .nav-menu .menu-active a,
 .nav-menu a:hover {
   color: #000000;
+  
 }
 
 .nav-menu > li {
   margin-left: 8px;
+  
+    
 }
 
 .nav-menu > li > a:before {
@@ -568,14 +591,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro h1 span {
   color: #278795;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra suave */
+
 }
 
 #intro p {
   color: #fdffff;
   font-weight: 700;
   font-size: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra suave */
-
+  
 }
 
 #intro .play-btn {
@@ -666,11 +690,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #fffafb;
+  border: 2px solid #278795;
 }
 
 #intro .about-btn:hover {
-  background: #f82249;
+  background: #278795;
   color: #fff;
 }
 
@@ -1714,27 +1738,4 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-top: 10px;
   }
 }
-/*--------------------------------------------------------------
-#BOTON DE VOLVER A PAGINA PRINCIPAL
---------------------------------------------------------------*/
-.btn-form-volver {
-  background-color: #57b846;
-  color: #fff !important;
-  padding: 6px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-  margin-bottom: 40px;
-}
-
-.btn-form-volver:hover {
-  background-color: #379237;
-  text-decoration: none;
-  color: #fff !important;
-}
-
 
