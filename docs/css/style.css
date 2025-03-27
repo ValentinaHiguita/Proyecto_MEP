@@ -891,6 +891,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 15px;
   margin-bottom: 10px;
 }
+.img-proveedor {
+  width: 100%;
+  height: 230px; /* Igual al estilo de hoteles */
+  object-fit: cover;
+  border-radius: 8px;
+}
 
 /*--------------------------------------------------------------
 # Schedule Section
