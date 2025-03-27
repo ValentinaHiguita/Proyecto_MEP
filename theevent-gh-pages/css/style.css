@@ -730,44 +730,68 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.event-box {
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro translúcido */
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.event-box h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.event-box p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.event-box .about-btn {
+  border: 2px solid #f82249;
+  padding: 12px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.event-box .about-btn:hover {
+  background: #f82249;
+  color: #fff;
+}
 
 #about {
   background: url("../img/about-bg.jpg");
   background-size: cover;
-  overflow: hidden;
   position: relative;
-  color: #fff;
+  color: #fff; /* <-- Esto aclara todo el texto */
   padding: 60px 0 40px 0;
+  z-index: 1;
 }
 
-#about:before {
-  content: "";
-  background: rgba(13, 20, 41, 0.8);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+#about h2,
+#about p,
+#about a.about-btn {
+  color: #fff; /* Textos visibles */
 }
 
-#about h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #fff;
+#about a.about-btn {
+  border: 2px solid #f82249;
+  padding: 12px 32px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-#about h3 {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#about p {
-  font-size: 14px;
-  margin-bottom: 20px;
+#about a.about-btn:hover {
+  background: #f82249;
   color: #fff;
 }
 
