@@ -212,8 +212,7 @@ vertical-align: middle;
 }
 /* === Botones del menú de navegación === */
 .btn-login {
-  background-color: #ffffff;
-  color: #000000 !important;
+  color: #ffffff !important;
   padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
@@ -229,7 +228,7 @@ vertical-align: middle;
 
 .btn-register {
   border: 1px solid #0d0d0d;
-  color: #060606 !important;
+  color: #000000 !important;
   padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
@@ -240,8 +239,10 @@ vertical-align: middle;
 
 .btn-register:hover {
   background-color:#278795;
-  color: #000000 !important;
   text-decoration: none;
+  color: #ffffff !important;
+  border: 1px solid #0d0d0d;
+
 }
 
 
@@ -485,7 +486,7 @@ vertical-align: middle;
 }
 
 #mobile-nav ul li a:hover {
-  color: #f82249;
+  color: #9ba79c;
 }
 
 #mobile-nav ul li li {
@@ -1746,9 +1747,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 767px) {
-  #schedule .nav-tabs a {
-    padding: 8px 50px;
-    
+  .btn-register {
+    color: #ffffff !important;
   }
 }
 
@@ -1769,4 +1769,5 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-top: 10px;
   }
 }
+
 
