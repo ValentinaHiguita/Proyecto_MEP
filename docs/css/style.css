@@ -212,7 +212,7 @@ vertical-align: middle;
 }
 /* === Botones del menú de navegación === */
 .btn-login {
-  color: #ffffff !important;
+  color: #040404 !important;
   padding: 6px 12px;
   border-radius: 5px;
   font-weight: 500;
@@ -1770,4 +1770,20 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+/* Estilos solo para los botones dentro del menú móvil */
+@media (max-width: 767px) {
+  #mobile-nav .btn-login,
+  #mobile-nav .btn-register {
+    color: #ffffff !important;
+    display: inline-block;
+    margin: 10px 15px;
+    font-size: 18px;
+  }
+
+  #mobile-nav .btn-login:hover,
+  #mobile-nav .btn-register:hover {
+    background-color: #278795 !important;
+    color: #ffffff !important;
+  }
+}
 
