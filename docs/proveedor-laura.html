@@ -30,7 +30,7 @@
             <i class="fa fa-star-half-o text-warning"></i>
             <span>(12 opiniones)</span>
           </div>
-          <a href="#" class="btn btn-primary btn-sm">Pide presupuesto gratis</a>
+          <a href="#reserva" class="btn btn-primary scrollto">Pide presupuesto gratis</a>
         </div>
       </div>
 
@@ -49,6 +49,82 @@
     </div>
   </section>
 
+  <!-- FORMULARIO DE COTIZACIÓN -->
+  <section id="reserva" class="section-bg py-5">
+    <div class="container">
+      <div class="section-header text-center mb-4">
+        <h2>Cotizar con Laura Ds Fotografía</h2>
+        <p>Llena este formulario para cotizar tu evento con este proveedor.</p>
+      </div>
+
+      <form action="gracias.html" method="get">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Tu nombre completo</label>
+            <input type="text" name="nombre_cliente" class="form-control" placeholder="Ej: Laura Díaz" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Tu correo electrónico</label>
+            <input type="email" name="email_cliente" class="form-control" placeholder="ejemplo@correo.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Fecha del evento</label>
+            <input type="date" name="fecha_evento" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Hora estimada</label>
+            <input type="time" name="hora_evento" id="hora_evento" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Ciudad del evento</label>
+            <select name="ciudad" class="form-control">
+              <option value="">Selecciona una ciudad</option>
+              <option value="Medellín">Medellín</option>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Cali">Cali</option>
+              <option value="Barranquilla">Barranquilla</option>
+              <option value="Otra">Otra</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Precio estimado</label>
+            <input type="text" id="precio_mostrado" class="form-control" readonly placeholder="Calculado automáticamente">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de evento</label>
+          <select name="tipo_evento" class="form-control">
+            <option value="">Selecciona una categoría</option>
+            <option value="Boda">Boda</option>
+            <option value="Cumpleaños">Cumpleaños</option>
+            <option value="Evento corporativo">Evento corporativo</option>
+            <option value="Concierto">Concierto</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Mensaje para el proveedor</label>
+          <textarea class="form-control" name="mensaje" rows="4" placeholder="Cuéntale al proveedor qué necesitas..."></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-cotizar">Cotizar</button>
+        </div>
+      </form>
+
+
+    </div>
+  </section>
+
+  <!-- Scripts -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

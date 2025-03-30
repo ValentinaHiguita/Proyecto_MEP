@@ -1806,4 +1806,18 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #ffffff !important;
   }
 }
+.btn-cotizar {
+  background-color: #ff4081;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cotizar:hover {
+  background-color: #e91e63;
+  transform: scale(1.05);
+}
 
