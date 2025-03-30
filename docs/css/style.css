@@ -1062,6 +1062,26 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+#venue .venue-gallery:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* 👇 Agrégalo justo aquí abajo */
+.vbox-content img {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.vbox-content {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
 
 /*--------------------------------------------------------------
 # Hotels Section
