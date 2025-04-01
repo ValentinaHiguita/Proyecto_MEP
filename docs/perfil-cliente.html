@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Perfil - Cliente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/perfil-cliente.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <!-- Datos personales -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="fa fa-user-circle-o me-2"></i>Mi Perfil</h5>
+            <a href="editar-perfil.html" class="btn btn-sm btn-light"><i class="fa fa-pencil"></i> Editar</a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3"><strong>Nombre completo:</strong> Laura Díaz</div>
+              <div class="col-md-6 mb-3"><strong>Correo electrónico:</strong> laura@example.com</div>
+              <div class="col-md-6 mb-3"><strong>Ciudad:</strong> Medellín</div>
+              <div class="col-md-6 mb-3"><strong>Género:</strong> Femenino</div>
+              <div class="col-md-6 mb-3"><strong>Tipo de Evento:</strong> Boda</div>
+              <div class="col-md-6 mb-3"><strong>Fecha del Evento:</strong> 15 de agosto de 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cotizaciones -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-secondary text-white">
+            <h5 class="mb-0"><i class="fa fa-file-text-o me-2"></i>Mis Cotizaciones</h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-3 border-bottom pb-2">
+              <p class="mb-1"><strong>📷 Proveedor:</strong> Laura Ds Fotografía</p>
+              <p class="mb-1"><strong>🗓 Fecha:</strong> 15 de agosto de 2025 - 3:00 PM</p>
+              <p class="mb-1"><strong>📌 Estado:</strong> <span class="badge bg-warning text-dark">Pendiente de respuesta</span></p>
+            </div>
+            <div>
+              <p class="mb-1"><strong>🎉 Proveedor:</strong> Ambienta Eventos</p>
+              <p class="mb-1"><strong>🗓 Fecha:</strong> 16 de agosto de 2025 - 5:00 PM</p>
+              <p class="mb-1"><strong>📌 Estado:</strong> <span class="badge bg-success">Cotización enviada</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eventos Guardados -->
+        <div class="card shadow-sm">
+          <div class="card-header bg-info text-white">
+            <h5 class="mb-0"><i class="fa fa-heart me-2"></i>Eventos Guardados</h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <p class="mb-1"><strong>🎊 Evento:</strong> Boda de Laura & Juan</p>
+              <p class="mb-1"><strong>📍 Lugar:</strong> Salón Jardines del Río</p>
+              <p class="mb-1"><strong>📅 Fecha:</strong> 15 de agosto de 2025</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -41,6 +41,74 @@
     </div>
   </main>
 
+  <section id="reserva" class="section-bg py-5">
+    <div class="container">
+      <div class="section-header text-center mb-4">
+        <h2>Cotizar con Palace</h2>
+        <p>Llena este formulario para cotizar tu evento con este proveedor.</p>
+      </div>
+  
+      <form action="gracias.html" method="get">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Tu nombre completo</label>
+            <input type="text" name="nombre_cliente" class="form-control" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Correo electrónico</label>
+            <input type="email" name="email_cliente" class="form-control" required>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Fecha del evento</label>
+            <input type="date" name="fecha_evento" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Hora estimada</label>
+            <input type="time" name="hora_evento" class="form-control">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Ciudad</label>
+            <select name="ciudad" class="form-control">
+              <option value="">Selecciona una ciudad</option>
+              <option>Medellín</option>
+              <option>Bogotá</option>
+              <option>Cali</option>
+              <option>Barranquilla</option>
+              <option>Otra</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Tipo de evento</label>
+            <select name="tipo_evento" class="form-control">
+              <option value="">Selecciona tipo</option>
+              <option>Boda</option>
+              <option>Cumpleaños</option>
+              <option>Evento corporativo</option>
+              <option>Concierto</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Mensaje para el proveedor</label>
+          <textarea class="form-control" name="mensaje" rows="4" placeholder="Cuéntale al proveedor qué necesitas..."></textarea>
+        </div>
+  
+        <div class="text-center">
+          <button type="submit" class="btn btn-cotizar">Cotizar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -34,6 +34,7 @@
 </head>
 
 <body>
+
   <section class="proveedor-detalle">
     <div class="container">
       <div class="row">
@@ -45,15 +46,15 @@
           <p><strong>Servicio:</strong> Joyería</p>
           <p><i class="fa fa-map-marker"></i> Medellín, Antioquia</p>
           <p>Diseños exclusivos en anillos de compromiso y alianzas de boda. Brillo Eterno es sinónimo de elegancia, calidad y amor eterno.</p>
-          <p>
+          <div>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star-o"></i>
             <span>(17 opiniones)</span>
-          </p>
-          <a href="#" class="btn btn-primary">Pide presupuesto gratis</a>
+          </div>
+          <a href="#reserva" class="btn btn-primary mt-3 scrollto">Pide presupuesto gratis</a>
         </div>
       </div>
 
@@ -69,6 +70,79 @@
       </div>
     </div>
   </section>
+
+  <!-- FORMULARIO DE COTIZACIÓN -->
+  <section id="reserva" class="section-bg py-5">
+    <div class="container">
+      <div class="section-header text-center mb-4">
+        <h2>Cotizar con Brillo Eterno</h2>
+        <p>Llena este formulario para cotizar tu evento con este proveedor.</p>
+      </div>
+
+      <form action="gracias.html" method="get">
+        <div class="row">
+          <div class="form-group col-md-6 mb-3">
+            <label>Tu nombre completo</label>
+            <input type="text" name="nombre_cliente" class="form-control" required>
+          </div>
+          <div class="form-group col-md-6 mb-3">
+            <label>Correo electrónico</label>
+            <input type="email" name="email_cliente" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 mb-3">
+            <label>Fecha del evento</label>
+            <input type="date" name="fecha_evento" class="form-control">
+          </div>
+          <div class="form-group col-md-6 mb-3">
+            <label>Hora estimada</label>
+            <input type="time" name="hora_evento" class="form-control">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 mb-3">
+            <label>Ciudad</label>
+            <select name="ciudad" class="form-control">
+              <option value="">Selecciona una ciudad</option>
+              <option>Medellín</option>
+              <option>Bogotá</option>
+              <option>Cali</option>
+              <option>Barranquilla</option>
+              <option>Otra</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6 mb-3">
+            <label>Tipo de evento</label>
+            <select name="tipo_evento" class="form-control">
+              <option value="">Selecciona tipo</option>
+              <option>Boda</option>
+              <option>Cumpleaños</option>
+              <option>Evento corporativo</option>
+              <option>Concierto</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Mensaje para el proveedor</label>
+          <textarea class="form-control" name="mensaje" rows="4" placeholder="Cuéntale al proveedor qué necesitas..."></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Cotizar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
