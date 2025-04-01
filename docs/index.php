@@ -1,7 +1,8 @@
-<?php
+<?php 
 session_start();
 $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,42 +39,43 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
   <!--==========================
     Header
   ============================-->
+  <body>
+  <!-- HEADER -->
   <header id="header">
     <div class="container d-flex justify-content-between align-items-center">
-
       <div id="logo">
         <a href="#intro" class="scrollto">
-          <img src="img/LogoMep-removebg-preview.png" alt="Logo MEP" title="" style="max-height: 50px;">
+          <img src="img/LogoMep-removebg-preview.png" alt="Logo MEP" style="max-height: 50px;">
         </a>
       </div>
 
-      <div class="d-flex align-items-center">
-      <?php if ($nombreUsuario): ?>
-  <div class="text-white mr-3 font-weight-bold">
-    Bienvenido(a), <?= htmlspecialchars($nombreUsuario) ?> 👋
-  </div>
-<?php endif; ?>
-
 
         <nav id="nav-menu-container">
-          <ul class="nav-menu">
-            <li class="menu-active"><a href="#intro">Inicio</a></li>
-            <li><a href="#about">Mi Evento</a></li>
-            <li><a href="#proveedores">Proveedores</a></li>
-            <li><a href="#venue">Ideas</a></li>
-            <li><a href="#hotels">Recepciones</a></li>
-            <li><a href="#gallery">Galería</a></li>
-            <li><a href="#contact">Contáctanos</a></li>
+  <ul class="nav-menu">
+    <li class="menu-active"><a href="#intro">Inicio</a></li>
+    <li><a href="#about">Mi Evento</a></li>
+    <li><a href="#proveedores">Proveedores</a></li>
+    <li><a href="#venue">Ideas</a></li>
+    <li><a href="#hotels">Recepciones</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#contact">Contáctanos</a></li>
 
-            <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
-            <li><a href="register.html" class="btn-register">Registrarse</a></li>
-            <li><a href="login-empresa.html" class="btn-empresa">Acceso Empresas</a></li>
-          </ul>
-        </nav>
+    <?php if ($nombreUsuario): ?>
+        <li class="nav-item" style="padding-right: 10px;">
+          <strong style="color:#000;">Bienvenido(a), <?= htmlspecialchars($nombreUsuario) ?> 👋</strong>
+        </li>
+        <li><a href="php/logout.php" class="btn btn-danger btn-sm">Cerrar Sesión</a></li>
+      <?php else: ?>
+      <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+      <li><a href="register.html" class="btn-register">Registrarse</a></li>
+      <li><a href="login-empresa.html" class="btn-empresa">Acceso Empresas</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>
+
       </div>
     </div>
   </header>
-
   <!-- Resto del contenido sigue igual... -->
 
 
@@ -785,19 +787,17 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script>
-    function verificarSesion() {
-      // Aquí simulamos que NO hay sesión
-      const sesionIniciada = false; // Cambia esto a true si quieres probar el otro caso
-  
-      if (sesionIniciada) {
-        // Si hay sesión, redirige al archivo
-        window.location.href = "crear-evento.html";
-      } else {
-        // Si NO hay sesión, muestra mensaje
-        alert("Debes iniciar sesión para crear tu evento.");
-      }
+  function verificarSesion() {
+    const sesionIniciada = <?php echo isset($_SESSION['nombre']) ? 'true' : 'false'; ?>;
+
+    if (sesionIniciada) {
+      window.location.href = "crear-evento.html";
+    } else {
+      window.location.href = "login.html";
     }
-  </script>
+  }
+</script>
+
   
 </body>
 

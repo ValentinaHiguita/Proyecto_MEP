@@ -21,7 +21,7 @@ if ($resultado->num_rows > 0) {
         $_SESSION['nombre'] = $fila['nombre'];
 
         // Redirigir si todo está bien
-        header("Location: ../dashboard.php");
+        header("Location: ../index.php");
         exit;
     } else {
         echo "Contraseña incorrecta.";
