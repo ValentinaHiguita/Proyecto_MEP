@@ -1,3 +1,9 @@
+<?php
+session_start();
+$nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +32,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: TheEvent
-    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -41,35 +40,44 @@
     Header
   ============================-->
   <header id="header">
-    <div class="container">
+    <div class="container d-flex justify-content-between align-items-center">
 
-      <div id="logo" class="pull-left">
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="img/LogoMep-removebg-preview.png" alt="" title=""></a>
+      <div id="logo">
+        <a href="#intro" class="scrollto">
+          <img src="img/LogoMep-removebg-preview.png" alt="Logo MEP" title="" style="max-height: 50px;">
+        </a>
       </div>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Inicio</a></li>
-          <li><a href="#about">Mi Evento</a></li>
-          <li><a href="#proveedores">Proveedores</a></li>
-          <!-- <li><a href="#schedule">Schedule</a></li> -->
-          <li><a href="#venue">Ideas</a></li>
-          <li><a href="#hotels">Recepciones</a></li>
-          <li><a href="#gallery">Galería</a></li>
-          <!-- <li><a href="#sponsors">Sponsors</a></li> -->
-          <li><a href="#contact">Contáctanos</a></li>
-          
-          <!-- NUEVOS BOTONES -->
-          <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
-          <li><a href="register.html" class="btn-register">Registrarse</a></li>
-          <li><a href="login-empresa.html" class="btn-empresa">Acceso Empresas</a></li>
+      <div class="d-flex align-items-center">
+      <?php if ($nombreUsuario): ?>
+  <div class="text-white font-weight-bold mr-4">
+    Bienvenido(a), <?= htmlspecialchars($nombreUsuario) ?> 👋
+  </div>
+<?php endif; ?>
 
-        </ul>
-      </nav><!-- #nav-menu-container -->      
+
+
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="#intro">Inicio</a></li>
+            <li><a href="#about">Mi Evento</a></li>
+            <li><a href="#proveedores">Proveedores</a></li>
+            <li><a href="#venue">Ideas</a></li>
+            <li><a href="#hotels">Recepciones</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#contact">Contáctanos</a></li>
+
+            <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+            <li><a href="register.html" class="btn-register">Registrarse</a></li>
+            <li><a href="login-empresa.html" class="btn-empresa">Acceso Empresas</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </header><!-- #header -->
+  </header>
+
+  <!-- Resto del contenido sigue igual... -->
+
 
   <!--==========================
     Intro Section
