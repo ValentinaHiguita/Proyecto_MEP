@@ -142,6 +142,60 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
     </div>
   </div>
 </section>
+<?php if (isset($_SESSION['nombre'])): ?>
+<section id="user-panel" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Tu Panel Personalizado 🧰</h2>
+    <div class="row text-center">
+
+      <!-- Agenda -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">📅 Agenda</h5>
+            <p class="card-text">Programa tus tareas y fechas importantes.</p>
+            <a href="agenda.html" class="btn btn-primary btn-sm">Ver Agenda</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invitados -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">👥 Invitados</h5>
+            <p class="card-text">Agrega y gestiona tu lista de invitados.</p>
+            <a href="invitados.html" class="btn btn-primary btn-sm">Gestionar Invitados</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Presupuesto -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">💰 Presupuesto</h5>
+            <p class="card-text">Controla tus gastos y categorías de inversión.</p>
+            <a href="presupuesto.html" class="btn btn-primary btn-sm">Mi Presupuesto</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inspiración -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🌟 Inspiración</h5>
+            <p class="card-text">Ideas y estilos basados en tus intereses.</p>
+            <a href="#venue" class="btn btn-primary btn-sm">Inspirarme</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<?php endif; ?>
 
 
   <main id="main">

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Invitados - MEP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .header-invitados {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card-invitado {
+      border: none;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card-invitado:hover {
+      transform: scale(1.01);
+    }
+
+    .btn-agregar {
+      background-color: #6a11cb;
+      color: white;
+    }
+
+    .btn-agregar:hover {
+      background-color: #4b0ea5;
+      color: white;
+    }
+
+    .btn-eliminar {
+      background: transparent;
+      border: none;
+      color: #dc3545;
+      font-size: 18px;
+    }
+
+    .list-group-item span i {
+      margin-right: 10px;
+      color: #6a11cb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-invitados">
+    <h1>👥 Lista de Invitados</h1>
+    <p>Administra quién asistirá a tu evento</p>
+  </div>
+
+  <main class="container py-5">
+    <div class="card card-invitado mb-4 p-4">
+      <form id="formInvitado">
+        <div class="form-row">
+          <div class="form-group col-md-5">
+            <label for="nombre">Nombre del invitado</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ej: Camila Rodríguez" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="asistencia">Confirmación</label>
+            <select class="form-control" id="asistencia" required>
+              <option value="">Selecciona</option>
+              <option value="Sí">✅ Confirmado</option>
+              <option value="No">❌ No Asistirá</option>
+              <option value="Pendiente">⏳ Pendiente</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3 align-self-end">
+            <button type="submit" class="btn btn-agregar btn-block">Agregar Invitado</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-8 d-flex flex-wrap gap-3">
+          <span class="badge badge-primary p-2">✅ Confirmados: <span id="contadorSi">0</span></span>
+          <span class="badge badge-danger p-2">❌ No Asistirán: <span id="contadorNo">0</span></span>
+          <span class="badge badge-warning text-dark p-2">⏳ Pendientes: <span id="contadorPendiente">0</span></span>
+        </div>
+        <div class="col-md-4">
+          <select id="filtroEstado" class="form-control">
+            <option value="todos">🔍 Ver todos</option>
+            <option value="Sí">✅ Confirmados</option>
+            <option value="No">❌ No Asistirán</option>
+            <option value="Pendiente">⏳ Pendientes</option>
+          </select>
+        </div>
+      </div>
+      
+    <h4 class="mb-3">Invitados</h4>
+    <ul id="listaInvitados" class="list-group"></ul>
+  </main>
+
+  <script>
+    const form = document.getElementById("formInvitado");
+    const lista = document.getElementById("listaInvitados");
+    const filtro = document.getElementById("filtroEstado");
+  
+    const contadorSi = document.getElementById("contadorSi");
+    const contadorNo = document.getElementById("contadorNo");
+    const contadorPendiente = document.getElementById("contadorPendiente");
+  
+    let invitados = [];
+  
+    function actualizarContadores() {
+      const si = invitados.filter(i => i.estado === "Sí").length;
+      const no = invitados.filter(i => i.estado === "No").length;
+      const pendiente = invitados.filter(i => i.estado === "Pendiente").length;
+  
+      contadorSi.textContent = si;
+      contadorNo.textContent = no;
+      contadorPendiente.textContent = pendiente;
+    }
+  
+    function guardarInvitados() {
+      localStorage.setItem("invitadosMEP", JSON.stringify(invitados));
+    }
+  
+    function renderLista(filtrado = "todos") {
+      lista.innerHTML = "";
+  
+      invitados.forEach((invitado, index) => {
+        if (filtrado === "todos" || invitado.estado === filtrado) {
+          const item = document.createElement("li");
+          item.className = "list-group-item d-flex justify-content-between align-items-center";
+          item.innerHTML = `
+            <span><i class="fa fa-user"></i> <strong>${invitado.nombre}</strong> - <em>${invitado.estado}</em></span>
+            <button class="btn-eliminar" title="Eliminar invitado"><i class="fa fa-trash"></i></button>
+          `;
+  
+          item.querySelector(".btn-eliminar").addEventListener("click", function () {
+            invitados.splice(index, 1);
+            guardarInvitados();
+            renderLista(filtro.value);
+            actualizarContadores();
+          });
+  
+          lista.appendChild(item);
+        }
+      });
+  
+      actualizarContadores();
+    }
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const nombre = document.getElementById("nombre").value.trim();
+      const estado = document.getElementById("asistencia").value;
+  
+      if (nombre && estado) {
+        invitados.push({ nombre, estado });
+        guardarInvitados();
+        renderLista(filtro.value);
+        form.reset();
+      }
+    });
+  
+    filtro.addEventListener("change", function () {
+      renderLista(filtro.value);
+    });
+  
+    window.addEventListener("DOMContentLoaded", function () {
+      invitados = JSON.parse(localStorage.getItem("invitadosMEP")) || [];
+      renderLista();
+    });
+  </script>
+  
