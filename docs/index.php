@@ -62,7 +62,7 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 
     <?php if ($nombreUsuario): ?>
         <li class="nav-item" style="padding-right: 10px;">
-          <strong style="color:#000;">Bienvenido(a), <?= htmlspecialchars($nombreUsuario) ?> 👋</strong>
+          <strong style="">Bienvenido(a), <?= htmlspecialchars($nombreUsuario) ?> 👋</strong>
         </li>
         <li><a href="php/logout.php" class="btn btn-danger btn-sm">Cerrar Sesión</a></li>
       <?php else: ?>
@@ -81,18 +81,68 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 
   <!--==========================
     Intro Section
-  ============================-->
-  <section id="intro">
-    <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">BODAS QUE INSPIRAN  
-        <br><span>EVENTOS QUE BRILLAN  
-        </span></h1>
-      <p class="mb-4 pb-0">Encuentra todo lo que necesitas en un solo lugar</p>
-      <a href="https://youtu.be/H4_11zM97GE" class="venobox play-btn mb-4" data-vbtype="video"
-        data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">Dale play a tu futuro</a>
+==========================
+  Intro Section
+===========================-->
+<section id="intro">
+  <div class="intro-container wow fadeIn">
+    <h1 class="mb-4 pb-0">BODAS QUE INSPIRAN  
+      <br><span>EVENTOS QUE BRILLAN</span>
+    </h1>
+    <p class="mb-4 pb-0">Encuentra todo lo que necesitas en un solo lugar</p>
+    <a href="https://youtu.be/H4_11zM97GE" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+    <a href="#about" class="about-btn scrollto">Dale play a tu futuro</a>
+  </div>
+</section>
+
+<!--==========================
+  Explora tu Experiencia
+===========================-->
+<?php if (!isset($_SESSION)) session_start(); ?>
+<section class="container py-5">
+  <div class="row text-center">
+    <!-- ORGANIZA TU EVENTO -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/evento.jpg" class="img-fluid mb-3" alt="Organiza tu evento">
+        <div class="card-body">
+          <h5 class="card-title">Organiza tu Evento</h5>
+          <p class="card-text">Administra fechas, tareas, invitados y proveedores desde un solo lugar.</p>
+          <?php if (isset($_SESSION['nombre'])): ?>
+            <a href="crear-evento.php" class="btn btn-primary">Ir a mi evento</a>
+          <?php else: ?>
+            <a href="login.html" class="btn btn-outline-primary">Inicia sesión para comenzar</a>
+          <?php endif; ?>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- INSPIRACIÓN -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/inspiracion.jpeg" class="img-fluid mb-3" alt="Inspiración">
+        <div class="card-body">
+          <h5 class="card-title">Inspiración</h5>
+          <p class="card-text">Descubre ideas en decoración, moda y más. Encuentra tu estilo ideal.</p>
+          <a href="#venue" class="btn btn-outline-secondary">Ver ideas</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROVEEDORES -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <img src="img/proveedores.jpeg" class="img-fluid mb-3" alt="Proveedores">
+        <div class="card-body">
+          <h5 class="card-title">Proveedores</h5>
+          <p class="card-text">Conecta con los mejores fotógrafos, DJs, salones y mucho más.</p>
+          <a href="#proveedores" class="btn btn-outline-secondary">Explorar proveedores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <main id="main">
 
