@@ -10,114 +10,81 @@
     body {
       background-color: #f8f9fa;
     }
-
-    .header-presupuesto {
-      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    .presupuesto-header {
+      background: linear-gradient(135deg, #00b09b, #96c93d);
       color: white;
       padding: 2rem;
       text-align: center;
     }
-
     .card-presupuesto {
       border: none;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
     }
-
     .card-presupuesto:hover {
       transform: scale(1.01);
     }
-
-    .btn-agregar {
-      background-color: #00c9ff;
-      color: white;
-    }
-
-    .btn-agregar:hover {
-      background-color: #00a0cc;
-      color: white;
-    }
-
-    .btn-eliminar {
-      background: transparent;
-      border: none;
-      color: #dc3545;
-      font-size: 18px;
-    }
-
-    .tabla-total {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #00a0cc;
+    .total {
+      font-size: 1.5rem;
+      color: #00b09b;
     }
   </style>
 </head>
 <body>
 
-  <div class="header-presupuesto">
-    <h1>💰 Presupuesto del Evento</h1>
-    <p>Organiza tus gastos y controla tus finanzas</p>
+  <div class="presupuesto-header">
+    <h1>💰 Presupuesto de tu Evento</h1>
+    <p>Organiza tus gastos por categoría</p>
   </div>
 
   <main class="container py-5">
-    <div class="card card-presupuesto mb-4 p-4">
+    <div class="card card-presupuesto p-4 mb-4">
       <form id="formPresupuesto">
-        <div class="form-row">
-          <div class="form-group col-md-5">
-            <label for="categoria">Categoría</label>
-            <input type="text" class="form-control" id="categoria" placeholder="Ej: Decoración" required>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>📍 Lugar del evento</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
           </div>
-          <div class="form-group col-md-4">
-            <label for="monto">Monto estimado ($)</label>
-            <input type="number" class="form-control" id="monto" placeholder="Ej: 500000" required>
+          <div class="col-md-6 mb-3">
+            <label>🍽️ Comida y bebida</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
           </div>
-          <div class="form-group col-md-3 align-self-end">
-            <button type="submit" class="btn btn-agregar btn-block">Agregar Gasto</button>
+          <div class="col-md-6 mb-3">
+            <label>🎵 Música y DJ</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>🌸 Decoración</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>👗 Vestuario</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>📸 Fotografía y video</label>
+            <input type="number" class="form-control gasto" placeholder="Monto en $">
           </div>
         </div>
+
+        <hr>
+        <p class="text-end total">Total estimado: $<span id="total">0</span></p>
       </form>
-    </div>
-
-    <h4 class="mb-3">Resumen de Gastos</h4>
-    <ul id="listaGastos" class="list-group mb-4"></ul>
-
-    <div class="tabla-total text-right">
-      Total: $<span id="total">0</span>
     </div>
   </main>
 
   <script>
-    const form = document.getElementById("formPresupuesto");
-    const lista = document.getElementById("listaGastos");
-    const totalSpan = document.getElementById("total");
+    const campos = document.querySelectorAll('.gasto');
+    const total = document.getElementById('total');
 
-    let total = 0;
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const categoria = document.getElementById("categoria").value;
-      const monto = parseFloat(document.getElementById("monto").value);
-
-      if (isNaN(monto) || monto <= 0) return;
-
-      const item = document.createElement("li");
-      item.className = "list-group-item d-flex justify-content-between align-items-center";
-      item.innerHTML = `
-        <span><strong>${categoria}</strong>: $${monto.toLocaleString()}</span>
-        <button class="btn-eliminar" title="Eliminar"><i class="fa fa-trash"></i></button>
-      `;
-
-      item.querySelector("button").addEventListener("click", () => {
-        total -= monto;
-        totalSpan.textContent = total.toLocaleString();
-        item.remove();
+    campos.forEach(campo => {
+      campo.addEventListener('input', () => {
+        let suma = 0;
+        campos.forEach(c => {
+          suma += parseFloat(c.value) || 0;
+        });
+        total.textContent = suma.toLocaleString('es-CO');
       });
-
-      lista.appendChild(item);
-      total += monto;
-      totalSpan.textContent = total.toLocaleString();
-      form.reset();
     });
   </script>
 

@@ -2,24 +2,30 @@
 session_start();
 include 'conexion.php';
 
-if (!isset($_SESSION['usuario_id'])) {
-  echo "Debes iniciar sesión para crear un evento.";
-  exit();
+// Validar que el usuario esté logueado
+if (!isset($_SESSION['id_usuario'])) {
+    echo "Debes iniciar sesión para crear un evento.";
+    exit;
 }
 
-$nombre = $_POST['nombre_evento'];
-$fecha = $_POST['fecha_evento'];
-$lugar = $_POST['lugar_evento'];
-$presupuesto = $_POST['presupuesto_evento'];
-$usuario_id = $_SESSION['usuario_id'];
+// Recoger datos del formulario
+$id_usuario = $_SESSION['id_usuario'];
+$titulo = $_POST['titulo'];
+$fecha = $_POST['fecha'];
+$tipo = $_POST['tipo'];
+$detalles = $_POST['detalles'];
 
-$sql = "INSERT INTO eventos (usuario_id, nombre, fecha, lugar, presupuesto) 
-        VALUES ('$usuario_id', '$nombre', '$fecha', '$lugar', '$presupuesto')";
+// Guardar en base de datos
+$sql = "INSERT INTO eventos (id_usuario, titulo, fecha, tipo, detalles) 
+        VALUES ('$id_usuario', '$titulo', '$fecha', '$tipo', '$detalles')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Evento creado exitosamente.";
-  header("Location: ../index.html");
+    // Redirigir a una página de confirmación o al dashboard
+    header("Location: ../index.php?evento=creado");
+    exit;
 } else {
-  echo "Error al guardar el evento: " . $conn->error;
+    echo "❌ Error al guardar el evento: " . $conn->error;
 }
+
+$conn->close();
 ?>
