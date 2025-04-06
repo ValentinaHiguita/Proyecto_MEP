@@ -145,15 +145,27 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 <?php if (isset($_SESSION['nombre'])): ?>
 <section id="user-panel" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Tu Panel Personalizado 🧰</h2>
+    <h2 class="text-center mb-4">🎛️ Tu Panel Personalizado</h2>
+    <p class="text-center mb-5">Hola <?php echo $_SESSION['nombre']; ?> 👋, administra aquí tu evento.</p>
     <div class="row text-center">
+
+      <!-- Crear o ver Evento -->
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">📋 Mi Evento</h5>
+            <p class="card-text">Edita o crea tu evento personal.</p>
+            <a href="crear-evento.php" class="btn btn-primary btn-sm">Gestionar Evento</a>
+          </div>
+        </div>
+      </div>
 
       <!-- Agenda -->
       <div class="col-md-3 mb-4">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="card-title">📅 Agenda</h5>
-            <p class="card-text">Programa tus tareas y fechas importantes.</p>
+            <p class="card-text">Organiza tus tareas y tiempos.</p>
             <a href="agenda.html" class="btn btn-primary btn-sm">Ver Agenda</a>
           </div>
         </div>
@@ -164,8 +176,8 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="card-title">👥 Invitados</h5>
-            <p class="card-text">Agrega y gestiona tu lista de invitados.</p>
-            <a href="invitados.html" class="btn btn-primary btn-sm">Gestionar Invitados</a>
+            <p class="card-text">Gestiona tu lista de asistentes.</p>
+            <a href="invitados.html" class="btn btn-primary btn-sm">Mis Invitados</a>
           </div>
         </div>
       </div>
@@ -175,19 +187,8 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="card-title">💰 Presupuesto</h5>
-            <p class="card-text">Controla tus gastos y categorías de inversión.</p>
-            <a href="presupuesto.html" class="btn btn-primary btn-sm">Mi Presupuesto</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Inspiración -->
-      <div class="col-md-3 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">🌟 Inspiración</h5>
-            <p class="card-text">Ideas y estilos basados en tus intereses.</p>
-            <a href="#venue" class="btn btn-primary btn-sm">Inspirarme</a>
+            <p class="card-text">Visualiza y controla tus gastos.</p>
+            <a href="presupuesto.html" class="btn btn-primary btn-sm">Ver Presupuesto</a>
           </div>
         </div>
       </div>
