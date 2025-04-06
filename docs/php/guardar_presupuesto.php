@@ -1,0 +1,54 @@
+<?php
+session_start();
+include 'conexion.php';
+
+if (!isset($_SESSION['id_usuario'])) {
+    echo "no_session";
+    exit;
+}
+
+$categoria = $_POST['categoria'] ?? '';
+$monto = $_POST['monto'] ?? '';
+$id_usuario = $_SESSION['id_usuario'];
+
+if ($categoria && $monto) {
+    $sql = "INSERT INTO presupuesto (id_usuario, categoria, monto)
+            VALUES ('$id_usuario', '$categoria', '$monto')";
+    if ($conn->query($sql)) {
+        echo "ok";
+    } else {
+        echo "error: " . $conn->error;
+    }
+} else {
+    echo "faltan_datos";
+}
+
+$conn->close();
+?>
+<?php
+session_start();
+include 'conexion.php';
+
+if (!isset($_SESSION['id_usuario'])) {
+    echo "no_session";
+    exit;
+}
+
+$nombre = $_POST['nombre'] ?? '';
+$estado = $_POST['asistencia'] ?? '';
+$id_usuario = $_SESSION['id_usuario'];
+
+if ($nombre && $estado) {
+    $sql = "INSERT INTO invitados (id_usuario, nombre, estado)
+            VALUES ('$id_usuario', '$nombre', '$estado')";
+    if ($conn->query($sql)) {
+        echo "ok";
+    } else {
+        echo "error: " . $conn->error;
+    }
+} else {
+    echo "faltan_datos";
+}
+
+$conn->close();
+?>

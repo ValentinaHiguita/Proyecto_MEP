@@ -10,18 +10,17 @@ if (!isset($_SESSION['id_usuario'])) {
 
 // Recoger datos del formulario
 $id_usuario = $_SESSION['id_usuario'];
-$titulo = $_POST['titulo'];
-$fecha = $_POST['fecha'];
-$tipo = $_POST['tipo'];
-$detalles = $_POST['detalles'];
+$nombre = $_POST['nombre_evento'];
+$fecha = $_POST['fecha_evento'];
+$lugar = $_POST['lugar_evento'];
+$presupuesto = $_POST['presupuesto_evento'];
 
-// Guardar en base de datos
-$sql = "INSERT INTO eventos (id_usuario, titulo, fecha, tipo, detalles) 
-        VALUES ('$id_usuario', '$titulo', '$fecha', '$tipo', '$detalles')";
+// Guardar en base de datos (ajustar con tus columnas reales)
+$sql = "INSERT INTO eventos (id_usuario, nombre_evento, fecha_evento, lugar_evento, presupuesto_evento) 
+        VALUES ('$id_usuario', '$nombre', '$fecha', '$lugar', '$presupuesto')";
 
 if ($conn->query($sql) === TRUE) {
-    // Redirigir a una página de confirmación o al dashboard
-    header("Location: ../index.php?evento=creado");
+    header("Location: ../perfil-cliente.php?evento=creado");
     exit;
 } else {
     echo "❌ Error al guardar el evento: " . $conn->error;

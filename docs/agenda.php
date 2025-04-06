@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+  header("Location: login.html");
+  exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="e©">
 <head>
@@ -86,29 +95,53 @@
     <h4 class="mb-3">Mis tareas</h4>
     <ul id="listaTareas" class="list-group"></ul>
   </main>
+  <?php
+include 'php/conexion.php';
+$id_usuario = $_SESSION['id_usuario'];
+$sql = "SELECT * FROM agenda WHERE id_usuario = '$id_usuario' ORDER BY fecha ASC";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_assoc()) {
+  echo '<li class="list-group-item">';
+  echo '<span><i class="fa fa-check-circle"></i><strong>' . htmlspecialchars($row['tarea']) . '</strong> - ' . $row['fecha'] . '</span>';
+  echo '<button class="btn-eliminar"><i class="fa fa-trash"></i></button>';
+  echo '</li>';
+}
+?>
 
   <script>
     const form = document.getElementById("agendaForm");
     const listaTareas = document.getElementById("listaTareas");
 
     form.addEventListener("submit", function(e) {
-      e.preventDefault();
+  e.preventDefault();
+  const tarea = document.getElementById("tarea").value;
+  const fecha = document.getElementById("fecha").value;
 
-      const tarea = document.getElementById("tarea").value;
-      const fecha = document.getElementById("fecha").value;
-
+  fetch("php/guardar_agenda.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `tarea=${encodeURIComponent(tarea)}&fecha=${encodeURIComponent(fecha)}`
+  })
+  .then(response => response.text())
+  .then(data => {
+    if (data === "ok") {
       const item = document.createElement("li");
       item.className = "list-group-item";
-      item.innerHTML = `
-        <span><i class="fa fa-check-circle"></i><strong>${tarea}</strong> - ${fecha}</span>
-        <button class="btn-eliminar" title="Eliminar"><i class="fa fa-trash"></i></button>
-      `;
-
+      item.innerHTML = `<span><i class="fa fa-check-circle"></i><strong>${tarea}</strong> - ${fecha}</span>
+                        <button class="btn-eliminar"><i class="fa fa-trash"></i></button>`;
       item.querySelector("button").addEventListener("click", () => item.remove());
-
       listaTareas.appendChild(item);
       form.reset();
-    });
+    } else {
+      alert("Error al guardar la tarea");
+      console.log(data);
+    }
+  });
+});
+
   </script>
 
 </body>
