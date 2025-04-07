@@ -24,90 +24,87 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="procesar_registro.php" method="post">
 					<div class="text-left mb-4">
-						<a href="index.php" class="btn-form-volver">← Volver</a>
-					  </div>
-					  
+					  <a href="index.php" class="btn-form-volver">← Volver</a>
+					</div>
+				  
 					<span class="login100-form-title p-b-43">
-						Regístrate como Empresa
+					  Regístrate como Empresa
 					</span>
-
+				  
 					<div class="wrap-input100 validate-input" data-validate="Nombre requerido">
-						<input class="input100" type="text" name="name">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Nombre completo</span>
+					  <input class="input100" type="text" name="name" required>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Nombre completo</span>
 					</div>
-
+				  
 					<div class="wrap-input100 validate-input" data-validate="Correo válido requerido">
-						<input class="input100" type="email" name="email">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Correo electrónico</span>
+					  <input class="input100" type="email" name="email" required>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Correo electrónico</span>
 					</div>
-<!-- Campo: Ciudad -->
-<div class="wrap-input100 validate-input" data-validate="Ciudad requerida">
-	<input class="input100" type="text" name="ciudad">
-	<span class="focus-input100"></span>
-	<span class="label-input100">Ciudad</span>
-  </div>
-  
-  <!-- Campo: Tipo de Proveedor -->
-  <div class="wrap-input100 validate-input" data-validate="Selecciona un tipo de proveedor">
-	<select class="input100" name="tipo_proveedor" style="background-color: transparent; color: #333; border: none;">
-	  <option disabled selected>Selecciona tipo de proveedor</option>
-	  <option value="fotografia">Fotografía y Video</option>
-	  <option value="catering">Catering</option>
-	  <option value="recepcion">Recepción</option>
-	  <option value="joyeria">Joyería</option>
-	  <option value="vestuario">Vestuario, zapatos</option>
-	  <option value="musica">Música y Sonido</option>
-	  <option value="decoracion">Decoración</option>
-	  <option value="pasteleria">Pastelería</option>
-	  
-	</select>
-	<span class="focus-input100"></span>
-	<span class="label-input100">Tipo de proveedor</span>
-  </div>
-  
+				  
+					<div class="wrap-input100 validate-input" data-validate="Ciudad requerida">
+					  <input class="input100" type="text" name="ciudad" required>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Ciudad</span>
+					</div>
+				  
+					<div class="wrap-input100 validate-input" data-validate="Selecciona un tipo de proveedor">
+					  <select class="input100" name="tipo_proveedor" required style="background-color: transparent; color: #333; border: none;">
+						<option disabled selected>Selecciona tipo de proveedor</option>
+						<option value="fotografia">Fotografía y Video</option>
+						<option value="catering">Catering</option>
+						<option value="recepcion">Recepción</option>
+						<option value="joyeria">Joyería</option>
+						<option value="vestuario">Vestuario, zapatos</option>
+						<option value="musica">Música y Sonido</option>
+						<option value="decoracion">Decoración</option>
+						<option value="pasteleria">Pastelería</option>
+					  </select>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Tipo de proveedor</span>
+					</div>
+				  
 					<div class="wrap-input100 validate-input" data-validate="Contraseña requerida">
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Contraseña</span>
+					  <input class="input100" type="password" name="pass" required>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Contraseña</span>
 					</div>
-
+				  
 					<div class="wrap-input100 validate-input" data-validate="Confirma tu contraseña">
-						<input class="input100" type="password" name="confirm-pass">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Repetir contraseña</span>
+					  <input class="input100" type="password" name="confirm-pass" required>
+					  <span class="focus-input100"></span>
+					  <span class="label-input100">Repetir contraseña</span>
 					</div>
-
+				  
 					<div class="text-center p-t-12">
-						<span class="txt1">¿Ya tienes cuenta?</span>
-						<a class="txt2" href="login.html">Inicia sesión aquí</a>
+					  <span class="txt1">¿Ya tienes cuenta?</span>
+					  <a class="txt2" href="login.html">Inicia sesión aquí</a>
 					</div>
-
+				  
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
-							Registrarse
-						</button>
+					  <button class="login100-form-btn">
+						Registrarse
+					  </button>
 					</div>
-
+				  
 					<div class="text-center p-t-46 p-b-20">
-						<span class="txt2">
-							o regístrate usando
-						</span>
+					  <span class="txt2">o regístrate usando</span>
 					</div>
-
+				  
 					<div class="login100-form-social flex-c-m">
-						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-							<i class="fa fa-facebook-f" aria-hidden="true"></i>
-						</a>
-
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</a>
+					  <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+						<i class="fa fa-facebook-f" aria-hidden="true"></i>
+					  </a>
+					  <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+					  </a>
 					</div>
-				</form>
+				  </form>
+				  
+				
 
 				<div class="login100-more" style="background-image: url('login/images/Nati\ +\ Cami-1120.jpg');">
 				</div>
