@@ -4,72 +4,143 @@
   <meta charset="UTF-8">
   <title>Mi Perfil - Cliente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/perfil-cliente.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f1f2f7;
+      padding: 0;
+      margin: 0;
+    }
+    .profile-nav, .profile-info {
+      margin-top: 30px;
+    }
+    .panel {
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .user-heading {
+      background: #278795;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    .user-heading img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .user-heading h1 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+    .user-heading p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    .bio-graph-heading {
+      background: #75969b;
+      color: #fff;
+      padding: 30px;
+      font-style: italic;
+      text-align: center;
+    }
+    .bio-graph-info h1 {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    .bio-row {
+      width: 50%;
+      float: left;
+      padding: 10px 15px;
+    }
+    .bio-row p span {
+      display: inline-block;
+      width: 140px;
+      font-weight: bold;
+    }
+    .panel-body a {
+      margin: 5px;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
+<div class="container bootstrap snippets bootdey">
+  <div class="row">
+    <div class="profile-nav col-md-3">
+      <div class="panel">
+        <div class="user-heading">
+          <img src="img/yop-1.jpg" alt="">
+          <h1>Laura Gómez</h1>
+          <p>laura@example.com</p>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#"> <i class="fa fa-user"></i> Perfil</a></li>
+          <li><a href="#"> <i class="fa fa-edit"></i> Editar perfil</a></li>
+          <li><a href="#"> <i class="fa fa-sign-out"></i> Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- Datos personales -->
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0"><i class="fa fa-user-circle-o me-2"></i>Mi Perfil</h5>
-            <a href="editar-perfil.html" class="btn btn-sm btn-light"><i class="fa fa-pencil"></i> Editar</a>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6 mb-3"><strong>Nombre completo:</strong> Laura Díaz</div>
-              <div class="col-md-6 mb-3"><strong>Correo electrónico:</strong> laura@example.com</div>
-              <div class="col-md-6 mb-3"><strong>Ciudad:</strong> Medellín</div>
-              <div class="col-md-6 mb-3"><strong>Género:</strong> Femenino</div>
-              <div class="col-md-6 mb-3"><strong>Tipo de Evento:</strong> Boda</div>
-              <div class="col-md-6 mb-3"><strong>Fecha del Evento:</strong> 15 de agosto de 2025</div>
+    <div class="profile-info col-md-9">
+      <div class="panel">
+        <div class="bio-graph-heading">
+          Bienvenida, Laura ✨ Tu espacio personalizado para planear tu evento soñado.
+        </div>
+        <div class="panel-body bio-graph-info">
+          <h1>Datos personales</h1>
+          <div class="row">
+            <div class="bio-row">
+              <p><span>Nombre completo:</span> Laura Gómez</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Ciudad:</span> Medellín</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Género:</span> Femenino</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Tipo de evento:</span> Boda</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Fecha del evento:</span> 2025-09-15</p>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Cotizaciones -->
-        <div class="card mb-4 shadow-sm">
-          <div class="card-header bg-secondary text-white">
-            <h5 class="mb-0"><i class="fa fa-file-text-o me-2"></i>Mis Cotizaciones</h5>
-          </div>
-          <div class="card-body">
-            <div class="mb-3 border-bottom pb-2">
-              <p class="mb-1"><strong>📷 Proveedor:</strong> Laura Ds Fotografía</p>
-              <p class="mb-1"><strong>🗓 Fecha:</strong> 15 de agosto de 2025 - 3:00 PM</p>
-              <p class="mb-1"><strong>📌 Estado:</strong> <span class="badge bg-warning text-dark">Pendiente de respuesta</span></p>
-            </div>
-            <div>
-              <p class="mb-1"><strong>🎉 Proveedor:</strong> Ambienta Eventos</p>
-              <p class="mb-1"><strong>🗓 Fecha:</strong> 16 de agosto de 2025 - 5:00 PM</p>
-              <p class="mb-1"><strong>📌 Estado:</strong> <span class="badge bg-success">Cotización enviada</span></p>
-            </div>
-          </div>
+      <div class="panel">
+        <div class="panel-body">
+          <h4 class="text-info">🎊 Mi Evento</h4>
+          <p><strong>📅 Fecha:</strong> 2025-09-15</p>
+          <p><strong>📍 Lugar:</strong> Salón Brisas del Bosque</p>
+          <p><strong>💰 Presupuesto:</strong> $15.000.000</p>
         </div>
+      </div>
 
-        <!-- Eventos Guardados -->
-        <div class="card shadow-sm">
-          <div class="card-header bg-info text-white">
-            <h5 class="mb-0"><i class="fa fa-heart me-2"></i>Eventos Guardados</h5>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <p class="mb-1"><strong>🎊 Evento:</strong> Boda de Laura & Juan</p>
-              <p class="mb-1"><strong>📍 Lugar:</strong> Salón Jardines del Río</p>
-              <p class="mb-1"><strong>📅 Fecha:</strong> 15 de agosto de 2025</p>
-            </div>
-          </div>
+      <div class="panel">
+        <div class="panel-body">
+          <a href="#" class="btn btn-outline-primary btn-sm">📅 Agenda</a>
+          <a href="#" class="btn btn-outline-primary btn-sm">👥 Invitados</a>
+          <a href="#" class="btn btn-outline-primary btn-sm">💰 Presupuesto</a>
+          <a href="#" class="btn btn-outline-dark btn-sm">🏠 Inicio</a>
         </div>
-
       </div>
     </div>
   </div>
+</div>
 
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
