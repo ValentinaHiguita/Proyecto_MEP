@@ -155,9 +155,9 @@ $evento = $res_evento->fetch_assoc();
 
       <div class="panel">
         <div class="panel-body">
-          <a href="agenda.html" class="btn btn-outline-primary btn-sm">📅 Agenda</a>
-          <a href="invitados.html" class="btn btn-outline-primary btn-sm">👥 Invitados</a>
-          <a href="presupuesto.html" class="btn btn-outline-primary btn-sm">💰 Presupuesto</a>
+          <a href="agenda.php" class="btn btn-outline-primary btn-sm">📅 Agenda</a>
+          <a href="invitados.php" class="btn btn-outline-primary btn-sm">👥 Invitados</a>
+          <a href="presupuesto.php" class="btn btn-outline-primary btn-sm">💰 Presupuesto</a>
           <a href="index.php" class="btn btn-outline-dark btn-sm">🏠 Inicio</a>
           <a href="editar-evento.php" class="btn btn-warning btn-sm">✏️ Editar Evento</a>
         </div>

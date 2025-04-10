@@ -21,7 +21,7 @@ if (!isset($_SESSION['id_usuario'])) {
     }
 
     .agenda-header {
-      background: linear-gradient(135deg, #ff4e50, #f9d423);
+      background: linear-gradient(135deg, #278795, #4da1ad);
       color: white;
       padding: 2rem;
       text-align: center;
@@ -38,12 +38,12 @@ if (!isset($_SESSION['id_usuario'])) {
     }
 
     .btn-agregar {
-      background-color: #ff4e50;
+      background-color: #278795;
       color: white;
     }
 
     .btn-agregar:hover {
-      background-color: #e84142;
+      background-color:rgb(100, 138, 130);
       color: white;
     }
 

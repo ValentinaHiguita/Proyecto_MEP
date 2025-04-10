@@ -1,111 +1,113 @@
+<?php
+session_start();
+include './php/conexion.php';
+
+if (!isset($_SESSION['id_empresa'])) {
+    header("Location: login-empresa.html");
+    exit;
+}
+
+$id_empresa = $_SESSION['id_empresa'];
+$sql_empresa = "SELECT * FROM empresas WHERE id = $id_empresa";
+$res_empresa = $conn->query($sql_empresa);
+$empresa = $res_empresa->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Panel de Empresa - MEP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Empresa - MEP</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f6f9;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      font-family: 'Open Sans', sans-serif;
     }
-    .card-option {
-      transition: 0.3s ease-in-out;
+    .empresa-header {
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .card-opcion {
       border: none;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
     }
-    .card-option:hover {
+    .card-opcion:hover {
       transform: translateY(-5px);
     }
-    .icon-circle {
+    .card-opcion i {
       font-size: 2rem;
-      background: #17a2b8;
-      color: #fff;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px auto;
-    }
-    .header {
-      background: linear-gradient(135deg, #00b09b, #96c93d);
-      color: white;
-      padding: 40px 0;
-      text-align: center;
-      border-radius: 0 0 30px 30px;
+      margin-bottom: 10px;
+      color: #4CAF50;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>🎉 Bienvenida Empresa</h1>
-    <p>Administra tu negocio y conecta con tus futuros clientes</p>
+
+  <div class="empresa-header">
+    <h1>🎉 Hola, <?= $empresa['nombre']; ?></h1>
+    <p>Administra tus servicios y gestiona tus solicitudes</p>
   </div>
 
-  <div class="container mt-5">
-    <div class="row">
+  <main class="container py-5">
+    <div class="row text-center">
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-clipboard-list"></i></div>
-          <h5>Solicitudes de Clientes</h5>
-          <p>Visualiza y gestiona los mensajes o contrataciones recibidas.</p>
-          <a href="#" class="btn btn-outline-info btn-sm">Ver solicitudes</a>
+      <!-- Editar Catálogo -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-opcion p-4">
+          <i class="fa fa-pencil"></i>
+          <h5 class="mt-2">Editar Catálogo</h5>
+          <p>Agrega tus servicios o paquetes disponibles.</p>
+          <a href="editar-catalogo.php" class="btn btn-success btn-sm">Editar</a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-image"></i></div>
-          <h5>Editar Catálogo</h5>
-          <p>Sube tus mejores trabajos y destaca tus servicios.</p>
-          <a href="#" class="btn btn-outline-info btn-sm">Editar catálogo</a>
+      <!-- Ver Solicitudes -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-opcion p-4">
+          <i class="fa fa-envelope"></i>
+          <h5 class="mt-2">Solicitudes</h5>
+          <p>Consulta mensajes de clientes interesados.</p>
+          <a href="solicitudes-clientes.php" class="btn btn-success btn-sm">Ver Solicitudes</a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-tools"></i></div>
-          <h5>Servicios</h5>
-          <p>Actualiza los servicios que ofreces y tus tarifas.</p>
-          <a href="#" class="btn btn-outline-info btn-sm">Actualizar servicios</a>
+      <!-- Actualizar Perfil -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-opcion p-4">
+          <i class="fa fa-cogs"></i>
+          <h5 class="mt-2">Actualizar Perfil</h5>
+          <p>Modifica tus datos, tipo de proveedor o ciudad.</p>
+          <a href="editar-empresa.php" class="btn btn-success btn-sm">Actualizar</a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-user-edit"></i></div>
-          <h5>Editar Perfil</h5>
-          <p>Modifica tu información de contacto y descripción.</p>
-          <a href="editar-empresa.php" class="btn btn-outline-info btn-sm">Editar perfil</a>
+      <!-- Ir al Inicio -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-opcion p-4">
+          <i class="fa fa-home"></i>
+          <h5 class="mt-2">Inicio</h5>
+          <p>Explora la plataforma como visitante.</p>
+          <a href="index.php" class="btn btn-outline-secondary btn-sm">Ir al Inicio</a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-home"></i></div>
-          <h5>Inicio</h5>
-          <p>Volver a la página principal de la plataforma.</p>
-          <a href="index.php" class="btn btn-outline-info btn-sm">Ir al inicio</a>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card card-option text-center p-4">
-          <div class="icon-circle"><i class="fas fa-sign-out-alt"></i></div>
-          <h5>Cerrar Sesión</h5>
+      <!-- Cerrar Sesión -->
+      <div class="col-md-4 mb-4">
+        <div class="card card-opcion p-4">
+          <i class="fa fa-sign-out"></i>
+          <h5 class="mt-2">Cerrar Sesión</h5>
           <p>Finaliza tu sesión de forma segura.</p>
-          <a href="php/logout.php" class="btn btn-outline-danger btn-sm">Cerrar sesión</a>
+          <a href="php/logout.php" class="btn btn-danger btn-sm">Cerrar Sesión</a>
         </div>
       </div>
 
     </div>
-  </div>
+  </main>
 
 </body>
 </html>

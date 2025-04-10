@@ -87,7 +87,8 @@
         <p>Llena este formulario para cotizar tu evento con este proveedor.</p>
       </div>
 
-      <form action="gracias.html" method="get">
+      <form action="php/guardar_solicitud.php" method="POST">
+        <input type="hidden" name="id_empresa" value="5">
         <div class="row">
           <div class="form-group col-md-6 mb-3">
             <label>Tu nombre completo</label>

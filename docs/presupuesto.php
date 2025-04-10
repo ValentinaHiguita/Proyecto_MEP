@@ -35,7 +35,7 @@ while ($row = $res->fetch_assoc()) {
       padding: 2rem;
       text-align: center;
     }
-    .total { font-size: 1.5rem; color: #00b09b; }
+    .total { font-size: 1.5rem; color: #278795; }
   </style>
 </head>
 <body>
@@ -60,6 +60,7 @@ while ($row = $res->fetch_assoc()) {
     <div class="text-center mt-4">
     <a href="perfil-cliente.php" class="btn btn-success btn-lg">
       🎉 Finalizar evento
+      
     </a>
 </div>
 

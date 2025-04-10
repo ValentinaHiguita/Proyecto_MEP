@@ -166,7 +166,7 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
           <div class="card-body">
             <h5 class="card-title">📅 Agenda</h5>
             <p class="card-text">Organiza tus tareas y tiempos.</p>
-            <a href="agenda.html" class="btn btn-primary btn-sm">Ver Agenda</a>
+            <a href="agenda.php" class="btn btn-primary btn-sm">Ver Agenda</a>
           </div>
         </div>
       </div>
@@ -177,7 +177,7 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
           <div class="card-body">
             <h5 class="card-title">👥 Invitados</h5>
             <p class="card-text">Gestiona tu lista de asistentes.</p>
-            <a href="invitados.html" class="btn btn-primary btn-sm">Mis Invitados</a>
+            <a href="invitados.php" class="btn btn-primary btn-sm">Mis Invitados</a>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
           <div class="card-body">
             <h5 class="card-title">💰 Presupuesto</h5>
             <p class="card-text">Visualiza y controla tus gastos.</p>
-            <a href="presupuesto.html" class="btn btn-primary btn-sm">Ver Presupuesto</a>
+            <a href="presupuesto.php" class="btn btn-primary btn-sm">Ver Presupuesto</a>
           </div>
         </div>
       </div>
