@@ -25,7 +25,7 @@ $empresa = $res->fetch_assoc();
     body { background-color: #f4f4f4; }
     .container { max-width: 700px; margin-top: 40px; }
     .form-header {
-      background: #4CAF50;
+      background: #278795;
       color: white;
       padding: 20px;
       border-radius: 10px 10px 0 0;

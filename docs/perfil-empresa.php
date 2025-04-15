@@ -26,7 +26,7 @@ $empresa = $res_empresa->fetch_assoc();
       font-family: 'Open Sans', sans-serif;
     }
     .empresa-header {
-      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      background: linear-gradient(135deg, #278795);
       color: white;
       padding: 2rem;
       text-align: center;
@@ -42,7 +42,7 @@ $empresa = $res_empresa->fetch_assoc();
     .card-opcion i {
       font-size: 2rem;
       margin-bottom: 10px;
-      color: #4CAF50;
+      color:  #4da1ad;
     }
   </style>
 </head>

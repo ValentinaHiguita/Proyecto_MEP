@@ -21,7 +21,7 @@ $id_empresa = $_SESSION['id_empresa'];
       background-color: #f8f9fa;
     }
     .header-catalogo {
-      background: linear-gradient(135deg, #00796B, #004D40);
+      background: linear-gradient(135deg, #278795);
       color: white;
       padding: 2rem;
       text-align: center;

@@ -2,7 +2,7 @@
 // procesar-registro.php
 
 // Incluir el archivo de conexión a la base de datos
-require_once 'conexion.php';
+require_once("php/conexion.php");
 
 // Verificar si el formulario ha sido enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -78,8 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("sssss", $nombre, $email, $ciudad, $tipo_proveedor, $password_hash);
             if ($stmt->execute()) {
                 // Redirigir al usuario a la página de inicio de sesión
-                header("Location: login-empresa.html");
-                exit;
+                echo "<div style='padding: 40px; font-family: sans-serif; text-align: center; background: #f4fff7; border: 2px solid #4CAF50; max-width: 600px; margin: 100px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);'>
+        <h2 style='color:#278795;'>✅ Registro de empresa exitoso</h2>
+        <p>Tu cuenta ha sido registrada correctamente.</p>
+                <a href='login-empresa.html' style='display: inline-block; margin-top: 20px; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;'>Iniciar sesión</a>
+            </div>";
+        exit;
+
             } else {
                 $errores[] = "Algo salió mal. Por favor, intenta de nuevo.";
             }

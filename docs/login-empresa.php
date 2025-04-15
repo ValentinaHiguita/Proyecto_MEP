@@ -10,8 +10,9 @@ $result = $conn->query($sql);
 
 if ($result->num_rows === 1) {
   $empresa = $result->fetch_assoc();
-  if ($pass === $empresa['password'])
- {
+  
+  // Aquí es donde se corrige la comparación
+  if ($pass === $empresa['password']) {
     $_SESSION['id_empresa'] = $empresa['id'];
     header("Location: perfil-empresa.php");
     exit;

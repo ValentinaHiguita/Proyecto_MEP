@@ -39,10 +39,11 @@ $empresa = $res->fetch_assoc();
     }
     .card-opcion:hover {
       transform: translateY(-5px);
+    
     }
     .card-opcion i {
       font-size: 2.5rem;
-      color:  #4da1ad;
+      color: #4da1ad;
       margin-bottom: 10px;
     }
     .card-opcion h5 {
